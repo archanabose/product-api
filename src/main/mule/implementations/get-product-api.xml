@@ -16,7 +16,7 @@ output application/json
   productID: "1234567",
   productName: "Archana mule course\"",
   productProvider: "udemy",
-  productDescription: "Complete mule developer course"
+  productDescription: "Complete mule developer course indepth"
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>
