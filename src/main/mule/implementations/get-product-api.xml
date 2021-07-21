@@ -14,12 +14,13 @@ output application/json
 ---
 {
   productID: "1234567",
-  productName: "Archana mule course\"",
+  productName: "Archana mule course 4.x.x",
   productProvider: "udemy",
   productDescription: "Complete mule developer course indepth"
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="aafc4d67-78c5-49b2-a008-10ddd29b9a76" />
     </flow>
 	
 	
