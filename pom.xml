@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mycompany</groupId>
@@ -16,6 +18,70 @@
 		<app.runtime>4.3.0-20210622</app.runtime>
 		<mule.maven.plugin.version>3.5.1</mule.maven.plugin.version>
 	</properties>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<build>
+				<plugins>
+
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<version>${mule.maven.plugin.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<cloudHubDeployment>
+								<applicationName>dev1-demo-deplo-product-api</applicationName>
+								<environment>dev</environment>
+								<region>us-east-1</region>
+								<workers>1</workers>
+								<workerType>MICRO</workerType>
+								<properties>
+									<env>dev</env>
+									<api.id>17087284</api.id>
+									<anypoint.platform.client_id>31f30cdc193c4c3dba784662f7e37499</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>760EB3d6AFb9482bb999350C3a65fcBd</anypoint.platform.client_secret>
+								</properties>
+							</cloudHubDeployment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+
+		</profile>
+		<profile>
+			<id>test</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.mule.tools.maven</groupId>
+						<artifactId>mule-maven-plugin</artifactId>
+						<version>${mule.maven.plugin.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<cloudHubDeployment>
+								<applicationName>test-demo-deplo-product-api</applicationName>
+								<environment>test</environment>
+								<region>us-east-1</region>
+								<workers>1</workers>
+								<workerType>MICRO</workerType>
+								<properties>
+									<env>test</env>
+									<api.id> 17087474</api.id>
+									<anypoint.platform.client_id>f7067f12969f4dfa999e0b5a0a178f01</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>7ffdfcc54Ddc4aBab6dFa428c3cB250D</anypoint.platform.client_secret>
+								</properties>
+							</cloudHubDeployment>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+
+		</profile>
+
+	</profiles>
 
 	<build>
 		<plugins>
@@ -29,6 +95,20 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>4.3.0</muleVersion>
+						<username>abose_july21</username>
+						<password>@Research1</password>
+						<objectStoreV2>true</objectStoreV2>
+						<properties>
+							<http.port>8081</http.port>
+							<anypoint.platform.base_uri>https://anypoint.mulesoft.com</anypoint.platform.base_uri>
+							<anypoint.platform.analytics_base_uri>https://analytics-ingest.anypoint.mulesoft.com</anypoint.platform.analytics_base_uri>
+						</properties>
+					</cloudHubDeployment>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
